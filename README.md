@@ -5,6 +5,8 @@
 
 - If you would prepare your lymphoma dataset as “sample_data.csv” with “Data dictionary.xlsx” as a reference, you could easily validate the models using the code in “github_model.R” file.
 
+- The sample dataset is completely made up.
+
 - Please contact me if you have any questions: shengling.ma@bcm.edu
 
 
