@@ -12,7 +12,7 @@ n <- 6 ## could adjust to any time you'd like to predict
 your_data$predited_VTE_incidence<- predict(model_VTE, newdata =your_data, type="risk",times = n)
 your_data$predited_PEDVT_incidence<- predict(model_PEDVT, newdata =your_data, type="risk",times = n)
 
-# prepare the binary outcomes for Time dependent AUC
+# prepare the binary outcomes for Time dependent AUC at month "n"
 your_data$VTE_indicator <- ifelse(your_data$status_VTE=="1",1,0)
 your_data$PEDVT_indicator <- ifelse(your_data$status_PEDVT=="1",1,0)
 
