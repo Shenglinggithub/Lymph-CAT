@@ -1,18 +1,17 @@
 library(survivalROC)
 library(riskRegression)
 # load your dataset
-setwd("/Users/shenglingma/Library/CloudStorage/Box-Box/CPRIT VTE Projects/HHS Database/Project/Lymphoma RAM/shiny/archive/Github")
 your_data <- read.csv("sample_data.csv")
 
 # load two Fine and Gray models
 model_VTE <- readRDS("VTE Risk Assessment Model for Lymphoma.rds")
-model_PEDVT <- readRDS("DVT Risk Assessment Model for Lymphoma.rds")
+model_PEDVT <- readRDS("PEDVT Risk Assessment Model for Lymphoma.rds")
 
 
 
 # make sure "Lymphoma_histology" is factor type with c("0","1", "2","3") levels.
 your_data$Lymphoma_histology <-  factor(your_data$Lymphoma_histology, levels = c("0","1", "2","3"))
-# get predicted VTE or PE/LE-DVT risk for each patient at 6 month 
+# get predicted VTE or PE/LE-DVT risk for each patient at 6 month
 your_data$predited_VTE_incidence<- predict(model_VTE, newdata =your_data, type="risk",times = 6)
 your_data$predited_PEDVT_incidence<- predict(model_PEDVT, newdata =your_data, type="risk",times = 6)
 
